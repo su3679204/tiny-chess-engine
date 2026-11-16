@@ -22,7 +22,7 @@ MAKEFUN_ENV_URL=<env url> python3 -P -s main.py
 
 ## Files
 
-- `main.py` — the whole engine (3,416 bytes).
+- `main.py` — the whole engine (3,870 bytes).
 - `engine8.py` — readable v3 source (engine + book).
 - `LICENSE` — MIT.
 
