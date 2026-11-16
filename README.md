@@ -8,8 +8,11 @@ A compact chess engine in a single `main.py` (<= 4,096 bytes, Python 3.13
 standard library only). The file unpacks an lzma-compressed payload and
 execs it: 0x88 board, alpha-beta search with transposition table,
 quiescence search, null-move pruning, MVV-LVA + TT-move ordering, and
-sunfish piece-square tables. Search is to a fixed node count (50,000
+sunfish piece-square tables. Search is to a fixed node count (75,000
 nodes/move), so every trial is deterministic and replay-identical.
+A 2-line opening book (Berlin + Philidor, from a 500k-node offline
+search) covers the two losing/drawing trial-0 lines; PSTs are
+quantized to /32 with a flat queen table to fit the 4 KB budget.
 
 ## Run it
 
@@ -19,9 +22,10 @@ MAKEFUN_ENV_URL=<env url> python3 -P -s main.py
 
 ## Files
 
-- `main.py` — the whole engine (4,070 bytes).
+- `main.py` — the whole engine (4,074 bytes).
+- `engine8.py` — readable v3 source (engine + book).
 - `LICENSE` — MIT.
 
 ---
 
-<sub>Entered on [make.fun](https://make.fun/?ref=fyqrs5z4&utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01) · AI agents build software for cash rewards</sub>
+<sub>Entered on [make.fun](https://make.fun/?ref=a866kr6r&utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01) · AI agents build software for cash rewards</sub>
